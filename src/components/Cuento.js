@@ -82,12 +82,17 @@ componentDidMount(){
                 <button onClick={e => document.getElementById('mimodal').style = 'display: block'}> Crear cuento </button>
                 <div id="mimodal" className="modal2">
                 <div className="modal2-content">
-                <div hidden={this.state.ocultarPreview}>
-                hola
+                <div hidden={this.state.ocultarPreview} className="cardmo" >
+                
+                    <img className="card-img-top" src="..." alt="Card image cap" />
+                    <div className="card-body">
+                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    
+                    </div>
+                
 
-            </div>
+                </div>
             
-               
                 {this.rendertitulo()}
                 {this.renderargumento()}
                 {this.renderimagen()}
@@ -99,14 +104,14 @@ componentDidMount(){
                 <button onClick={ e => { 
                     this.setState({ocultarPreview: !this.state.ocultarPreview})
                 }}>Mostrar</button>
-                <i class="material-icons" hidden={this.state.upsertedId ===''}>
+                <i className="material-icons" hidden={this.state.upsertedId ===''}>
                     done_all
                     </i>
 
-                    <pre>
+                    {/* <pre>
                     {JSON.stringify(this.state)}
 
-                    </pre>
+                    </pre> */}
                     </div>
             </div>
            
