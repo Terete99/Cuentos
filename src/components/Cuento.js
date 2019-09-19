@@ -82,14 +82,14 @@ componentDidMount(){
                 <button onClick={e => document.getElementById('mimodal').style = 'display: block'}> Crear cuento </button>
                 <div id="mimodal" className="modal2">
                 <div className="modal2-content">
-                <div hidden={this.state.ocultarPreview} className="cardmo" >
-                
-                    <img className="card-img-top" src="..." alt="Card image cap" />
+                <div hidden={this.state.ocultarPreview} className="cardmostrar" >
+                <div className="modal2-content">
+                    <img className="card-img-top" src="cuentos.jpg" alt="Card image cap" />
                     <div className="card-body">
                         <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     
                     </div>
-                
+                </div>
 
                 </div>
             
