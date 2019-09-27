@@ -76,7 +76,7 @@ export class Cuento extends Component {
     }
 
     ///////////////////
-    rendercomentario = () =>{
+    rendertexto = () =>{
         return <input
         // value={this.state.cuento.comentario}
         title="Introduce el comentario"
@@ -137,7 +137,7 @@ export class Cuento extends Component {
                         {this.renderimagen()}
                         {this.rendermoraleja()}
                         {this.rendervideo()}
-                        {this.rendercomentario()}
+                        {this.rendertexto()}
                         {/* boton comentar */}
                         
                         <button onClick={ e => {

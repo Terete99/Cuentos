@@ -7,6 +7,7 @@ import {Cuento} from './components/Cuento'
 import {Stitch, RemoteMongoClient, AnonymousCredential} from "mongodb-stitch-browser-sdk";
 import {Cuentos} from  './components/Cuentos'
 import {Comentario} from './components/Comentario'
+import {UserCuentos} from './components/UserCuentos'
 
 
 export const stitch = Stitch.initializeAppClient('')
@@ -40,12 +41,13 @@ export const ajaxPost = (url, cb) => {
 
 const rutas =(
     <BrowserRouter>
-    <Route exact path="/" component={Cuentos} />
 
+    <Route exact path="/" component={UserCuentos} />
     <Route path="/cuento/:id" component={Cuento} />
-
     <Route path="/cuentos" component={Cuentos} />
     <Route path="/comentario" component={Comentario} />
+    <Route path="/usercuentos" component={UserCuentos} />
+
     </BrowserRouter>
 )
 

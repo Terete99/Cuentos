@@ -12,9 +12,7 @@ export class Comentario extends Component {
 
     render() {
 
-        let comentario = [
-        
-        ] 
+         
         return (
             <div>
                 {this.state.cuento.comentarios.map( (c, i) => { return <ShowComentario key={i} {...c}></ShowComentario>
