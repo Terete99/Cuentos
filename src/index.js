@@ -8,7 +8,7 @@ import {Stitch, RemoteMongoClient, AnonymousCredential} from "mongodb-stitch-bro
 import {Cuentos} from  './components/Cuentos'
 import {Comentario} from './components/Comentario'
 import {UserCuentos} from './components/UserCuentos'
-
+import {BotonLeerCuento} from './components/BotonLeerCuento'
 
 export const stitch = Stitch.initializeAppClient('')
 if (!stitch.auth.isLoggedIn){
@@ -47,7 +47,7 @@ const rutas =(
     <Route path="/cuentos" component={Cuentos} />
     <Route path="/comentario" component={Comentario} />
     <Route path="/usercuentos" component={UserCuentos} />
-
+    <Route path="/leercuento/:id" component={BotonLeerCuento} />
     </BrowserRouter>
 )
 

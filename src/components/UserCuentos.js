@@ -39,7 +39,7 @@ class UserCuentosCard extends Component {
                 <img className="card-img-top"src={this.props.imagen} alt="Card image" width="400px"/>
                 <div className="card-body">
                     <h4 className="card-title">{this.props.titulo}</h4>
-                    <Link to="#" className="btn btn-primary">Ver cuento</Link>
+                    <Link to={`/leercuento/${this.props._id}`} className="btn btn-primary">Ver cuento</Link>
                 </div>
             </div>
             

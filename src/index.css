@@ -77,3 +77,14 @@ i.material-icons:hover{
       text-align: center;
 
   }
+  .div-leercuento{
+    width: 15%;
+    height: 325px;
+    float: left;
+    padding: 20px;
+    margin: 5px;
+    border-style: outset;
+    box-shadow: 2px 2px;
+    text-align: center;
+
+  }
