@@ -10,11 +10,11 @@ import {Comentario} from './components/Comentario'
 import {UserCuentos} from './components/UserCuentos'
 import {BotonLeerCuento} from './components/BotonLeerCuento'
 
-export const stitch = Stitch.initializeAppClient('')
+export const stitch = Stitch.initializeAppClient('appcuentos-kcyur')
 if (!stitch.auth.isLoggedIn){
     stitch.auth.loginWithCredential(new AnonymousCredential())
 }
-export const mongo = stitch.getServiceClient(RemoteMongoClient.factory,'mongodb-atlas')
+export const mongo = stitch.getServiceClient(RemoteMongoClient.factory,'')
 
 export const ajaxGet = (url, cb) => {
     fetch( url, {

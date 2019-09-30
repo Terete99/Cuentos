@@ -126,7 +126,7 @@ export class Cuento extends Component {
     render() {
 
         return (
-            <div className="modal2-content">
+            <div id="#mimodal" className="modal2-content">
 
                 {/* <button onClick={e => document.getElementById('mimodal').style = 'display: block'}> Crear cuento </button>
                 <div id="mimodal" className="modal2">
@@ -139,6 +139,7 @@ export class Cuento extends Component {
                 {this.rendermoraleja()}
                 {this.rendervideo()}
                 {this.rendertexto()}
+                
                 {/* boton comentar */}
 
                 <button onClick={e => {
