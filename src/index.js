@@ -9,6 +9,7 @@ import {Cuentos} from  './components/Cuentos'
 import {Comentario} from './components/Comentario'
 import {UserCuentos} from './components/UserCuentos'
 import {BotonLeerCuento} from './components/BotonLeerCuento'
+import {GestionarComentarios} from './components/GestionarComentarios'
 
 export const stitch = Stitch.initializeAppClient('appcuentos-kcyur')
 if (!stitch.auth.isLoggedIn){
@@ -48,6 +49,7 @@ const rutas =(
     <Route path="/comentario" component={Comentario} />
     <Route path="/usercuentos" component={UserCuentos} />
     <Route path="/leercuento/:id" component={BotonLeerCuento} />
+    <Route path="/gestionarcomentarios/:id" component={GestionarComentarios} />
     </BrowserRouter>
 )
 
