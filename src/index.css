@@ -52,7 +52,7 @@ i.material-icons:hover{
   .modal2-content {
     /* background-color: #fefefe;  */
     margin: 5% auto;  
-    padding: 20px;
+    padding: 50px;
     border-style: outset;
     color:palevioletred;
     width: 80%;  
@@ -81,4 +81,7 @@ i.material-icons:hover{
     text-align: center;
     padding: 40px;
 
+  }
+  .crearCuento{
+    padding: 5%;
   }

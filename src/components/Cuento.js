@@ -75,7 +75,7 @@ export class Cuento extends Component {
             onChange={(c) => { this.setState({ cuento: { ...this.state.cuento, video: c.target.value } }) }} />
     }
 
-    ///////////////////
+
     rendertexto = () => {
         return <input
             // value={this.state.cuento.comentario}
@@ -124,14 +124,9 @@ export class Cuento extends Component {
     }
 
     render() {
-
+        //inputs que graban en la db
         return (
             <div id="#mimodal" className="modal2-content">
-
-                {/* <button onClick={e => document.getElementById('mimodal').style = 'display: block'}> Crear cuento </button>
-                <div id="mimodal" className="modal2">
-                            </div> */}
-
 
                 {this.rendertitulo()}
                 {this.renderargumento()}
@@ -139,7 +134,7 @@ export class Cuento extends Component {
                 {this.rendermoraleja()}
                 {this.rendervideo()}
                 {this.rendertexto()}
-                
+
                 {/* boton comentar */}
 
                 <button onClick={e => {
@@ -156,33 +151,20 @@ export class Cuento extends Component {
                     console.log(this.state.cuento)
 
                 }}> comentar </button>
-
-
-
-
-
-
-
+                {/* boton que inserta */}
                 <button onClick={e => {
                     let c = this.state.cuento
                     delete c._id
                     this.cuentos.insertOne(c)
                 }}>Grabar</button>
+                {/* boton que modifica */}
                 <button onClick={e => {
                     this.cuentos.findOneAndReplace({ _id: new ObjectId(this.props.match.params.id) }, this.state.cuento)
                 }}>Modificar</button>
-
+                    {/* boton que elimina */}
                 <button onClick={e => {
                     this.cuentos.deleteOne({ _id: new ObjectId(this.props.match.params.id) })
                 }}>Borrar</button>
-
-                {/* <pre>
-                    {JSON.stringify(this.state)}
-
-                    </pre> */}
-                {/* </div>
-                </div> */}
-
             </div>
         )
 

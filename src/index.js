@@ -14,7 +14,7 @@ export const stitch = Stitch.initializeAppClient('appcuentos-kcyur')
 if (!stitch.auth.isLoggedIn){
     stitch.auth.loginWithCredential(new AnonymousCredential())
 }
-export const mongo = stitch.getServiceClient(RemoteMongoClient.factory,'')
+export const mongo = stitch.getServiceClient(RemoteMongoClient.factory,'mongodb-atlas')
 
 export const ajaxGet = (url, cb) => {
     fetch( url, {

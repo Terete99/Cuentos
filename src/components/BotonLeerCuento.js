@@ -7,17 +7,13 @@ import ReactPlayer from 'react-player'
 export class BotonLeerCuento extends Component {
     state = {
         cuento: {}
-
-
     }
-
-    componentDidMount = () => { //traer listado cuentos
-
+    componentDidMount = () => { //traer listado cuentos y pintar en pantalla
         this.cuento.findOne({ _id: new ObjectId(this.props.match.params.id) }).then(c => {
-
             this.setState({ cuento: c })
             console.log(c)
         })
+        //cerrar modal al clicar fuera
         window.onclick = (event) => {
             if (event.target === document.getElementById('mimodal')) {
                 document.getElementById('mimodal').style.display = 'none'
@@ -28,59 +24,62 @@ export class BotonLeerCuento extends Component {
     cuento = mongo.db('miapp').collection('cuentos')
 
     render() {
-
         return (
             <div>
+                {/* props del hijo al padre */}
                 <LeerCuento cuento {...this.state.cuento} />
                 {/* {JSON.stringify(this.state.cuento)} */}
-
             </div>
         )
     }
 }
 
-// class LeerCuento extends Component {
-//     render() {
-//         return (
-//             <div className="card mb-3" className="div-leercuento">
-//                 <h1 className="card-title">{this.props.titulo}</h1>
-//                 <img src={this.props.imagen} alt="Card image cap" width="200px" />
-//                 <div className="card-body">
-//                     <p className="card-text">{this.props.argumento}</p>
-//                     <ReactPlayer width="50" height="50" url={this.props.video} />
-//                 </div>
-//                 <h4 className="card-text"><small className="text-muted">{this.props.moraleja}</small></h4>
-//             </div>
-//         )
-//     }
-// }
 
 class LeerCuento extends Component {
+    // interfaz usuario pintar inputs que me traigan contenido de la base de datos 
     render() {
         return (
-
-
-            
+            <div className="div-leercuento" >
                 <div className="modal-dialog modal-lg"  >
-                    <div className="modal-content">
-                        <div className="modal-header" className="div-leercuento">
-                            <img src={this.props.imagen} alt="Card image cap" width="550px" />
+                    <div className="modal-content" >
+                        <div className="div-leercuento" >
+                            {/* le paso las props  */}
+                            <img src={this.props.imagen} alt="No disponible" width="550px" />
                         </div>
-                        <div className="modal-body" className="div-leercuento">
-                            <h1 className="modal-title" className="div-leercuento">{this.props.titulo}</h1>
-                            <p className="card-text" className="div-leercuento">{this.props.argumento}</p>
-                            <ReactPlayer width="700px" height="500px" url={this.props.video} />
+                        <div className="div-leercuento" >
+                            <h1 className="div-leercuento" >{this.props.titulo}</h1>
+                            <p className="card-text">{this.props.argumento}</p>
+                            <ReactPlayer width="700px" height="500px" url={this.props.video} className="div-leercuento" />
+                            
                         </div>
                         <div className="modal-footer">
-                            <h4><small className="text-muted">{this.props.moraleja}</small></h4>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Terminar</button>
+
+                        <h4><small className="text-muted">{this.props.moraleja}</small></h4>
                         </div>
+
+                        
+
+                        {/* // creo los inputs de los comentarios */}
 
                     </div>
                 </div>
-            
+                <div className="container">
+                            <h2>Comentarios</h2>
+                            <p>Déjanos tu opinión</p>
+                            
+                                <div className="form-group">
+                                    <textarea className="form-control" rows="5" id="comment" name="text"></textarea>
+                                </div>
+                                <button type="button" className="btn btn-primary">Enviar</button>
+                            
+                        </div>
+            </div>
+
 
 
         )
     }
+
+
+
 }
