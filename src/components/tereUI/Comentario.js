@@ -8,7 +8,9 @@ export class Onecomentario{
 }
 
 export class Comentario extends Component {
-    state = {}
+    state = {
+        cuento: { comentarios: [] }
+    }
 
     render() {
 
@@ -25,7 +27,9 @@ class ShowComentario extends Component{
     render() { 
         return(
         <div>
-            {this.props.texto} {this.props.estado}
+            <h2> {this.props.titulo} </h2>
+            <p>{this.props.texto} </p>
+            {this.props.estado}
       </div>
     )
     }

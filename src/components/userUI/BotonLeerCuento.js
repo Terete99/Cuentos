@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { mongo } from '../index'
+import { mongo } from '../../index'
 import { ObjectId } from 'bson'
 import ReactPlayer from 'react-player'
-import { Onecomentario } from './Comentario'
+import { Onecomentario } from '../tereUI/Comentario'
+import { Link } from 'react-router-dom'
 
 
 
@@ -16,12 +17,6 @@ export class BotonLeerCuento extends Component {
             this.setState({ cuento: c })
             console.log(c)
         })
-        //cerrar modal al clicar fuera
-        window.onclick = (event) => {
-            if (event.target === document.getElementById('mimodal')) {
-                document.getElementById('mimodal').style.display = 'none'
-            }
-        }
     }
 
     cuento = mongo.db('miapp').collection('cuentos')
@@ -29,6 +24,7 @@ export class BotonLeerCuento extends Component {
     render() {
         return (
             <div>
+                
                 {/* props del hijo al padre */}
                 <LeerCuento cuento {...this.state.cuento} />
                 {/* {JSON.stringify(this.state.cuento)} */}
@@ -48,7 +44,9 @@ class LeerCuento extends Component {
         return (
             <div className="div-leercuento" >
                 <div className="modal-dialog modal-lg"  >
+                
                     <div className="modal-content" >
+                    <Link to="/usercuentos">Volver</Link>
                         <div className="div-leercuento" >
                             {/* le paso las props  */}
                             <img src={this.props.imagen} alt="No disponible" width="550px" />

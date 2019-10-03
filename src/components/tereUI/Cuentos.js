@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { mongo } from '../index'
-
+import { mongo } from '../../index'
 import { Link } from 'react-router-dom'
 
 export class Cuentos extends Component {
@@ -18,11 +17,15 @@ export class Cuentos extends Component {
 
         return (
             <div>
-                <Link to="/cuento/nuevo" className="crearCuento">Crear cuento</Link>
+                <Link to="/usercuentos">UserUI</Link><br></br>
+                <Link to="/cuento/nuevo">Crear cuento</Link><br></br>
+                <Link to="/listadocomentarios/">Gestionar comentarios</Link><br></br>
                 {this.state.cuentos.map((cuento, i) => {
                     return <CardCuento key={i}
                         {...cuento} />
                 })}
+                 {/* ${this.state.cuento._id} */}
+               
             </div>
         )
     }
