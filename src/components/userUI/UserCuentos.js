@@ -15,6 +15,8 @@ export class UserCuentos extends Component {
 
         return (
             <div>
+                <Link to="/cuentos">TereUI</Link>
+
                 {this.state.cuentos.map((cuento, i) => {
                     return <UserCuentosCard key={i}
                         {...cuento} />
@@ -26,6 +28,7 @@ export class UserCuentos extends Component {
 class UserCuentosCard extends Component {
     render() {
         return (
+
             <div className="modal-dialog">
                 <div className="modal-content">
                     <div className="modal-header">

@@ -13,6 +13,7 @@ import {GestionarComentarios} from './components/tereUI/GestionarComentarios'
 import {ListadoComentarios} from './components/tereUI/ListadoComentarios'
 import {Test} from './components/Test'
 
+
 export const stitch = Stitch.initializeAppClient('appcuentos-kcyur')
 if (!stitch.auth.isLoggedIn){
     stitch.auth.loginWithCredential(new AnonymousCredential())
