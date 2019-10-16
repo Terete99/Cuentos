@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { mongo } from '../../index'
 import { Link } from 'react-router-dom'
-
 export class Cuentos extends Component {
     state = { cuentos: [] }
 

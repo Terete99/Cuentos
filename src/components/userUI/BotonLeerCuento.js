@@ -59,49 +59,49 @@ class LeerCuento extends Component {
                             <h4><small className="text-muted">{this.props.moraleja}</small></h4>
                             <hr></hr>
                         </div>
+                        <div>
+                        <hr></hr>
+                        </div>
                         <div className="container">
-                        <h2>Comentarios</h2><br></br><br></br>
+                            <h2>Comentarios</h2>
+                            <p>Déjanos tu opinión</p>
                             {this.props.comentarios.map((c, i) => {
                                 let muestra = c.estado === true ? <div key={i}> {c.texto} </div> : <span />
-                                return <div key={i}> {muestra} </div>
+                                return <div key={i}> {muestra}
+                                
+                                </div>
                             })}
+
+                            
+
+                            <div className="inputComentarios">
+                                <input className="form-control form-control-lg" onChange={(e) => {
+                                    this.setState({ comentario: e.target.value })
+                                }} ></input>
+                            </div>
+                            {/* //metemos comentarios al cuento */}
+                            <button onClick={e => {
+                                let comentario = new Onecomentario()
+                                //meter el valor del input en nuevo comentario
+                                comentario.texto = this.state.comentario
+                                let copia = this.props.comentarios || []
+                                //metemos el objeto comentario en el array comentarios
+                                copia.push(comentario)
+                                console.log(copia)
+                                //grabar a la db
+                                mongo.db('miapp').collection('cuentos').updateOne(
+                                    { _id: new ObjectId(this.props._id) },
+                                    { $set: { comentarios: copia } }
+                                )
+                            }} type="button" className="btn btn-primary">Enviar</button>
+                            <br></br>
+
                         </div>
+
+
                     </div>
-                </div>
-
-
-
-
-                {/* // creo los inputs de los comentarios */}
-
-                <div className="container">
-                    
-                    <p>Déjanos tu opinión</p>
-
-                    <div className="inputComentarios">
-                        <input onChange={(e) => {
-                            this.setState({ comentario: e.target.value })
-                        }} ></input>
-                    </div>
-                    {/* //metemos comentarios al cuento */}
-                    <button onClick={e => {
-                        let comentario = new Onecomentario()
-                        //meter el valor del input en nuevo comentario
-                        comentario.texto = this.state.comentario
-                        let copia = this.props.comentarios || []
-                        //metemos el objeto comentario en el array comentarios
-                        copia.push(comentario)
-                        console.log(copia)
-                        //grabar a la db
-                        mongo.db('miapp').collection('cuentos').updateOne(
-                            { _id: new ObjectId(this.props._id) },
-                            { $set: { comentarios: copia } }
-                        )
-                    }} type="button" className="btn btn-primary">Enviar</button>
-
                 </div>
             </div>
-
 
 
         )
@@ -110,3 +110,8 @@ class LeerCuento extends Component {
 
 
 }
+
+
+
+
+

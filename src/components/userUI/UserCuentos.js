@@ -48,5 +48,3 @@ class UserCuentosCard extends Component {
     }
 }
 
-
-

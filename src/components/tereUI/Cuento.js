@@ -3,7 +3,6 @@ import { mongo } from '../../index'
 import { ObjectId } from 'bson'
 import '../../index.css'
 import { Link } from 'react-router-dom'
-
 export class Onecomentario {
     constructor() {
         this.texto = ''
@@ -158,17 +157,17 @@ export class Cuento extends Component {
                     let c = this.state.cuento
                     delete c._id
                     this.cuentos.insertOne(c)
-                    this.setState({cuento: new CuentoComponent()})
+                    this.setState({ cuento: new CuentoComponent() })
                 }}>Grabar</button>
                 {/* boton que modifica */}
                 <button onClick={e => {
                     this.cuentos.findOneAndReplace({ _id: new ObjectId(this.props.match.params.id) }, this.state.cuento)
-                    this.setState({cuento: new CuentoComponent()})
+                    this.setState({ cuento: new CuentoComponent() })
                 }}>Modificar</button>
-                    {/* boton que elimina */}
+                {/* boton que elimina */}
                 <button onClick={e => {
                     this.cuentos.deleteOne({ _id: new ObjectId(this.props.match.params.id) })
-                    this.setState({cuento: new CuentoComponent()})
+                    this.setState({ cuento: new CuentoComponent() })
                 }}>Borrar</button>
             </div>
         )
