@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { mongo } from '../../index'
 import { Link } from 'react-router-dom'
+import Button from 'react-bootstrap/Button'
+import { Menu } from '../userUI/Menu'
+
 export class Cuentos extends Component {
     state = { cuentos: [] }
 
@@ -16,15 +19,17 @@ export class Cuentos extends Component {
 
         return (
             <div>
-                <Link to="/usercuentos">UserUI</Link><br></br>
-                <Link to="/cuento/nuevo">Crear cuento</Link><br></br>
-                <Link to="/listadocomentarios/">Gestionar comentarios</Link><br></br>
+                <Menu></Menu>
+                <div>
+
+                    <Button href="/menu" variant="link">Volver</Button>
+                </div>
                 {this.state.cuentos.map((cuento, i) => {
                     return <CardCuento key={i}
                         {...cuento} />
                 })}
-                 {/* ${this.state.cuento._id} */}
-               
+                {/* ${this.state.cuento._id} */}
+
             </div>
         )
     }

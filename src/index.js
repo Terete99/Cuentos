@@ -7,7 +7,7 @@ import {Cuento} from './components/tereUI/Cuento'
 import {Stitch, RemoteMongoClient} from "mongodb-stitch-browser-sdk";
 import {Cuentos} from  './components/tereUI/Cuentos'
 import {Comentario} from './components/tereUI/Comentario'
-import {UserCuentos} from './components/userUI/UserCuentos2'
+import {UserCuentos} from './components/userUI/UserCuentos'
 import {BotonLeerCuento} from './components/userUI/BotonLeerCuento'
 import {GestionarComentarios} from './components/tereUI/GestionarComentarios'
 import {ListadoComentarios} from './components/tereUI/ListadoComentarios'
@@ -28,7 +28,7 @@ export const mongo = stitch.getServiceClient(RemoteMongoClient.factory,'mongodb-
 const rutas =(
     <BrowserRouter>
 
-    <Route exact path="/" component={UserCuentos} />
+    <Route exact path="/" component={Menu} />
     <Route path="/cuento/:id" component={Cuento} />
     <Route path="/cuentos" component={Cuentos} />
     <Route path="/comentario" component={Comentario} />

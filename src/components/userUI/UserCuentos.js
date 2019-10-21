@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { mongo } from '../../index'
-import { Link } from 'react-router-dom'
+import { Carousel } from 'react-bootstrap'
+// import { Menu } from './Menu'
 
 export class UserCuentos extends Component {
     state = { cuentos: [] }
@@ -10,41 +11,44 @@ export class UserCuentos extends Component {
             this.setState({ cuentos: c })
         })
     }
+
     cuentos = mongo.db('miapp').collection('cuentos')
     render() {
-
-        return (
-            <div>
-                <Link to="/cuentos">TereUI</Link>
-
-                {this.state.cuentos.map((cuento, i) => {
-                    return <UserCuentosCard key={i}
-                        {...cuento} />
-                })}
-            </div>
-        )
-    }
-}
-class UserCuentosCard extends Component {
-    render() {
-        return (
-
-            <div className="modal-dialog">
-                <div className="modal-content">
-                    <div className="modal-header">
-                        <h4 className="modal-title">{this.props.titulo}</h4>
-                    </div>
-                    <div className="modal-body">
-                        <img src={this.props.imagen} width="400px" alt="No disponible" />
-                    </div>
-                    <div className="modal-footer">
-                        <Link to={`/leercuento/${this.props._id}`} className="btn btn-primary">Ver cuento</Link>
-                    </div>
+        return (<div >
+            {/* <Menu></Menu> */}
+            <div className="row">
+                <div className="col-4" >
+                </div>
+                <Carousel className="col-4" >
+                    {this.state.cuentos.map((cuento, i) => {
+                        return <Carousel.Item className="p-3 mb-2 bg-light text-dark" key={i}>
+                            <div>
+                                <h2 className="p-3 mb-2 bg-white" ><a href={`/leercuento/${cuento._id}`} className="text-danger">{cuento.titulo}</a> </h2>
+                            
+                            <img
+                                className="d-block w-100"
+                                src={cuento.imagen}
+                                alt="First slide"
+                            />
+                            </div>
+                        </Carousel.Item>
+                    })}
+                </Carousel>
+                <div className="col-4" >
                 </div>
             </div>
 
-
+        </div>
         )
+
     }
 }
+
+
+
+
+
+
+
+
 

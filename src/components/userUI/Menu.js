@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 import Navbar from 'react-bootstrap/Navbar'
+import DropdownButton from 'react-bootstrap/DropdownButton'
+import Dropdown from 'react-bootstrap/Dropdown'
+import { UserCuentos } from './UserCuentos'
+
 
 
 
@@ -8,13 +12,22 @@ export class Menu extends Component {
     return (
 
       <div>
-      <Navbar expand="lg" variant="light" bg="light">
+        <Navbar expand="lg" variant="info" bg="light">
 
-      <Navbar.Brand href="#">Navbar</Navbar.Brand>
+          <Navbar.Brand >
+            <DropdownButton id="dropdown-basic-button" title="TereUI">
+              <Dropdown.Item href="/cuentos">Cuentos</Dropdown.Item>
+              <Dropdown.Item href="/cuento/nuevo">Crear cuento</Dropdown.Item>
+              <Dropdown.Item href="/listadocomentarios/">Gestionar Comentarios</Dropdown.Item>
+            </DropdownButton>
+          </Navbar.Brand>
+            <DropdownButton id="dropdown-basic-button" title="Cuentos" href="/UserCuentos">
+            </DropdownButton>
+        </Navbar>
+        <UserCuentos></UserCuentos>
+      </div>
 
-      </Navbar>
-    </div>
-      
+
     )
   }
 }
