@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { mongo } from '../../index'
-import { Carousel } from 'react-bootstrap'
-// import { Menu } from './Menu'
+import Carousel from 'react-responsive-carousel'
+import { Link } from 'react-router-dom'
+
 
 export class UserCuentos extends Component {
     state = { cuentos: [] }
@@ -15,7 +16,7 @@ export class UserCuentos extends Component {
     cuentos = mongo.db('miapp').collection('cuentos')
     render() {
         return (<div >
-            {/* <Menu></Menu> */}
+                <Link to="/cuentos">Volver</Link>
             <div className="row">
                 <div className="col-4" >
                 </div>

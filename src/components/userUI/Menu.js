@@ -3,6 +3,7 @@ import Navbar from 'react-bootstrap/Navbar'
 import DropdownButton from 'react-bootstrap/DropdownButton'
 import Dropdown from 'react-bootstrap/Dropdown'
 import { UserCuentos } from './UserCuentos'
+// import { Login } from './Login'
 
 
 
@@ -21,8 +22,12 @@ export class Menu extends Component {
               <Dropdown.Item href="/listadocomentarios/">Gestionar Comentarios</Dropdown.Item>
             </DropdownButton>
           </Navbar.Brand>
-            <DropdownButton id="dropdown-basic-button" title="Cuentos" href="/UserCuentos">
-            </DropdownButton>
+          <Navbar.Brand >
+          <DropdownButton id="dropdown-basic-button" title="Cuentos" href="/UserCuentos">
+          </DropdownButton>
+          </Navbar.Brand>
+          <DropdownButton id="dropdown-basic-button" title="Login" href="/Login">
+          </DropdownButton>
         </Navbar>
         <UserCuentos></UserCuentos>
       </div>
