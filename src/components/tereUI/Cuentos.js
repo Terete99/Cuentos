@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { mongo } from '../../index'
 import { Link } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
-import { Menu } from '../userUI/Menu'
+// import { Menu } from '../userUI/Menu'
 
 export class Cuentos extends Component {
     state = { cuentos: [] }
@@ -19,7 +19,7 @@ export class Cuentos extends Component {
 
         return (
             <div>
-                <Menu></Menu>
+                {/* <Menu></Menu> */}
                 <div>
 
                     <Button href="/menu" variant="link">Volver</Button>

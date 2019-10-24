@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { mongo } from '../../index'
-import Carousel from 'react-responsive-carousel'
-import { Link } from 'react-router-dom'
+import Carousel from 'react-bootstrap/Carousel'
+// import { Link } from 'react-router-dom'
 
 
 export class UserCuentos extends Component {
@@ -15,8 +15,8 @@ export class UserCuentos extends Component {
 
     cuentos = mongo.db('miapp').collection('cuentos')
     render() {
-        return (<div >
-                <Link to="/cuentos">Volver</Link>
+        return (<div>
+                {/* <Link to="/cuentos">Volver</Link> */}
             <div className="row">
                 <div className="col-4" >
                 </div>
