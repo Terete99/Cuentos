@@ -49,18 +49,20 @@ class LeerCuento extends Component {
                     <div className="modal-content" >
                         <Link to="/usercuentos">Volver</Link>
                         <div className="div-leercuento" >
+                            <h3>{this.props.tematica}</h3>
                             {/* le paso las props  */}
                             <img src={this.props.imagen} alt="No disponible" width="550px" />
                         </div>
                         <div className="div-leercuento" >
                             <h1 className="div-leercuento" >{this.props.titulo}</h1>
                             <p className="card-text">{this.props.argumento}</p>
+
                             <ReactPlayer width="700px" height="500px" url={this.props.video} className="div-leercuento" />
                             <h4><small className="text-muted">{this.props.moraleja}</small></h4>
                             <hr></hr>
                         </div>
                         <div>
-                        <hr></hr>
+                            <hr></hr>
                         </div>
                         <div className="container">
                             <h2>Comentarios</h2>
@@ -68,11 +70,11 @@ class LeerCuento extends Component {
                             {this.props.comentarios.map((c, i) => {
                                 let muestra = c.estado === true ? <div key={i}> {c.texto} </div> : <span />
                                 return <div key={i}> {muestra}
-                                
+
                                 </div>
                             })}
 
-                            
+
 
                             <div className="inputComentarios">
                                 <input className="form-control form-control-lg" onChange={(e) => {

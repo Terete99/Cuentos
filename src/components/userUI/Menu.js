@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import Navbar from 'react-bootstrap/Navbar'
 import DropdownButton from 'react-bootstrap/DropdownButton'
 import Dropdown from 'react-bootstrap/Dropdown'
-import { UserCuentos } from './UserCuentos'
-// import { Login } from './Login'
+// import { UserCuentos } from './UserCuentos'
+import Image from 'react-bootstrap/Image'
 
 
 
@@ -29,7 +29,10 @@ export class Menu extends Component {
           <DropdownButton id="dropdown-basic-button" title="Login" href="/Login">
           </DropdownButton>
         </Navbar>
-        <UserCuentos></UserCuentos>
+        {/* <UserCuentos></UserCuentos> */}
+        <div className="bg">
+        <Image className="py-5 text-center" height="100%" fluid />
+        </div>
       </div>
 
 

@@ -18,6 +18,7 @@ export class CuentoComponent {
         this.moraleja = ''
         this.video = ''
         this.comentarios = []
+        this.tematica = []
 
     }
 }
@@ -85,6 +86,15 @@ export class Cuento extends Component {
             onChange={(c) => { this.setState({ texto: c.target.value }) }} />
     }
 
+    rendertematica = () => {
+        return <input
+        value= {this.state.cuento.tematica}
+        title= "Introduce una temática"
+        className= "form-control"
+        placeholder="Temática"
+        onChange= {(c) => { this.setState({ cuento: {...this.state.cuento, tematica: c.target.value } }) }} />
+    }
+
     grabar = () => {
         this.cuentos.insertOne(this.state.cuento)
 
@@ -135,6 +145,7 @@ export class Cuento extends Component {
                 {this.renderimagen()}
                 {this.rendermoraleja()}
                 {this.rendervideo()}
+                {this.rendertematica()}
                 {this.rendertexto()}
 
                 {/* boton comentar */}
