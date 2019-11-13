@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { mongo } from '../../index'
 import { Link } from 'react-router-dom'
-import Button from 'react-bootstrap/Button'
+
+
 // import { Menu } from '../userUI/Menu'
 
 export class Cuentos extends Component {
@@ -19,10 +20,13 @@ export class Cuentos extends Component {
 
         return (
             <div>
+                
+                 <Link to="/menu" >Volver</Link>
+                
                 {/* <Menu></Menu> */}
                 <div>
 
-                    <Button href="/menu" variant="link">Volver</Button>
+                    
                 </div>
                 {this.state.cuentos.map((cuento, i) => {
                     return <CardCuento key={i}

@@ -140,20 +140,10 @@ body {
   .form-gradient input[type=password]:focus:not([readonly]) + label {
     color: #4f4f4f; }
 
-    body, html {
-      height: 100%;
-    }
+   
 
-    .bg {
-      /* The image used */
-      background-image: url("/src/components/images/back.jpg");
-    
-      /* Full height */
-      height: 100%;
-      width: 100%;
-    
-      /* Center and scale the image nicely */
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
+    /* .bg {
+      background-image: "../public/fondo.jpg";
+      
+     
+    } */

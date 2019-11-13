@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { UserPasswordCredential} from "mongodb-stitch-browser-sdk";
 import { stitch } from '../../index';
+import { Link } from 'react-router-dom'
 
 
 export  class Login extends Component {
@@ -25,19 +26,20 @@ export  class Login extends Component {
 
   render() {
     return (
-      <div className="container">     
+      <div className="container">  
+      <Link to="/menu" >Volver</Link>   
         <br />
         <div className="form-inline">
           <input 
               onChange={ e => this.setState({username: e.target.value}) }
               className="form-control"
-              placeholder="nombre de usuario" />
+              placeholder="nombre de usuario" />&nbsp;
           <input 
             type="password" 
             onChange={ e => this.setState({password: e.target.value}) }
             className="form-control"
-            placeholder="password" />
-          <button onClick={this.login} className="btn btn-primary"> Stitch Login </button>
+            placeholder="password" />&nbsp;&nbsp;&nbsp;&nbsp;
+          <button onClick={this.login} className="btn btn-primary"> Stitch Login </button> &nbsp;
           <button onClick={this.logout} className="btn btn-primary"> Logout </button>
 
         </div>

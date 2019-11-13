@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { mongo } from '../../index'
 import Carousel from 'react-bootstrap/Carousel'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 export class UserCuentos extends Component {
@@ -16,14 +16,21 @@ export class UserCuentos extends Component {
     cuentos = mongo.db('miapp').collection('cuentos')
     render() {
         return (<div>
-                {/* <Link to="/cuentos">Volver</Link> */}
+                
+                
             <div className="row">
+                
                 <div className="col-4" >
+                <Link to="/menu" >Volver</Link>
+                
                 </div>
                 <Carousel className="col-4" >
+                
                     {this.state.cuentos.map((cuento, i) => {
                         return <Carousel.Item className="p-3 mb-2 bg-light text-dark" key={i}>
+                            
                             <div>
+                            
                                 <h2 className="p-3 mb-2 bg-white" ><a href={`/leercuento/${cuento._id}`} className="text-danger">{cuento.titulo}</a> </h2>
                             
                             <img

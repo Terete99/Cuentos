@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { mongo } from '../../index'
 import { ObjectId } from 'bson'
 import '../../index.css'
+import { Link } from 'react-router-dom'
 
 export class Onecomentario {
     constructor() {
@@ -137,6 +138,7 @@ export class Cuento extends Component {
         //inputs que graban en la db
         return (
             <div id="#mimodal" className="modal2-content">
+                <Link to="/menu" >Volver</Link>
                 
                 
 
