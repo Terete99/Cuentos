@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Menu } from '../userUI/Menu'
 
 export class Onecomentario{
     constructor(){
@@ -27,6 +28,7 @@ class ShowComentario extends Component{
     render() { 
         return(
         <div>
+            <Menu></Menu>
             <h2> {this.props.titulo} </h2>
             <p>{this.props.texto} </p>
             {this.props.estado}

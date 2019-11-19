@@ -5,6 +5,7 @@ import ReactPlayer from 'react-player'
 import { Onecomentario } from '../tereUI/Comentario'
 import { Link } from 'react-router-dom'
 import { CuentoComponent } from '../tereUI/Cuento'
+import { Menu } from './Menu'
 
 
 
@@ -25,6 +26,7 @@ export class BotonLeerCuento extends Component {
     render() {
         return (
             <div>
+                <Menu></Menu>
 
                 {/* props del hijo al padre */}
                 <LeerCuento {...this.state.cuento} />

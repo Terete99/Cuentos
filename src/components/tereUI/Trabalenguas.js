@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { mongo } from '../../index'
+import { Link } from 'react-router-dom'
 
 
 export class TrabalenguasComponent {
   constructor(){
     this.texto=''
-    this.temática=[]
+    this.tematica=''
   }
 }
 
@@ -17,12 +18,7 @@ export class Trabalenguas extends Component {
  
   }
   trabalenguas = mongo.db('miapp').collection('trabalenguas')
-
-  
-
-  
-
-  rendertexto = () => {
+rendertexto = () => {
     return <textarea
         value={this.state.trabalenguas.texto}
         title="Introduce el texto"
@@ -53,6 +49,7 @@ componentDidMount = () => {
   render() {
     return (
       <div id="#mimodal" className="modal2-content">
+        <Link to="/trabalenguasuser/:tema" >Volver</Link>
         {this.rendertexto()}
         {this.rendertematica()}
 
@@ -62,6 +59,8 @@ componentDidMount = () => {
                     this.trabalenguas.insertOne(t)
                     this.setState({ trabalenguas: new TrabalenguasComponent() })
                 }}>Grabar</button>
+
+              {/* <pre> {JSON.stringify(this.state.trabalenguas, undefined, 2) } </pre> */}
       </div>
     )
   }

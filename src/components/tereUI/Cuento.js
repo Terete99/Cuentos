@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { mongo } from '../../index'
 import { ObjectId } from 'bson'
 import '../../index.css'
-import { Link } from 'react-router-dom'
+import { Menu } from '../userUI/Menu'
 
 export class Onecomentario {
     constructor() {
@@ -137,8 +137,10 @@ export class Cuento extends Component {
     render() {
         //inputs que graban en la db
         return (
+            <div>
+                <Menu></Menu>
             <div id="#mimodal" className="modal2-content">
-                <Link to="/menu" >Volver</Link>
+                
                 
                 
 
@@ -183,6 +185,7 @@ export class Cuento extends Component {
                     this.cuentos.deleteOne({ _id: new ObjectId(this.props.match.params.id) })
                     this.setState({ cuento: new CuentoComponent() })
                 }}>Borrar</button>
+            </div>
             </div>
         )
 

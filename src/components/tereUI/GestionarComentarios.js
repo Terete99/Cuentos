@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { ObjectId } from 'bson'
 import { mongo } from '../../index'
 import { CuentoComponent } from './Cuento'
+import { Menu } from '../userUI/Menu'
 
 //este componente es para que yo apruebe y gestione los comentarios
 
@@ -33,6 +34,7 @@ export class GestionarComentarios extends Component {
 
     return (
       <div>
+        <Menu></Menu>
         {this.state.cuento.comentarios.map((c, i) => {
 
           return <div key={i}>

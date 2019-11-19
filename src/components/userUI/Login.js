@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { UserPasswordCredential} from "mongodb-stitch-browser-sdk";
 import { stitch } from '../../index';
-import { Link } from 'react-router-dom'
+import { Menu } from './Menu'
 
 
 export  class Login extends Component {
@@ -27,7 +27,7 @@ export  class Login extends Component {
   render() {
     return (
       <div className="container">  
-      <Link to="/menu" >Volver</Link>   
+      <Menu></Menu>   
         <br />
         <div className="form-inline">
           <input 

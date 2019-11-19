@@ -140,10 +140,15 @@ body {
   .form-gradient input[type=password]:focus:not([readonly]) + label {
     color: #4f4f4f; }
 
-   
-
-    /* .bg {
-      background-image: "../public/fondo.jpg";
-      
-     
-    } */
+   .trabalenguas{
+     text-align: center;
+    
+   }
+   img {
+    border-radius: 8px;
+    width:"100%";
+  }
+  .fondo{
+    background-image: url("fondo.jpg");
+    width:"100%";
+  }

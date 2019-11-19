@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import { mongo } from '../../index'
 import { Link } from 'react-router-dom'
-
-
-// import { Menu } from '../userUI/Menu'
+import { Menu } from '../userUI/Menu'
 
 export class Cuentos extends Component {
     state = { cuentos: [] }
@@ -21,12 +19,7 @@ export class Cuentos extends Component {
         return (
             <div>
                 
-                 <Link to="/menu" >Volver</Link>
-                
-                {/* <Menu></Menu> */}
                 <div>
-
-                    
                 </div>
                 {this.state.cuentos.map((cuento, i) => {
                     return <CardCuento key={i}
@@ -39,11 +32,12 @@ export class Cuentos extends Component {
     }
 }
 
-class CardCuento extends Component {
+export default class CardCuento extends Component {
     render() {
         return (
 
             <div className="div-card">
+                <Menu></Menu>
 
                 <div style={{ padding: 20, textAlign: "center" }} >
                     <Link to={`/cuento/${this.props._id}`} className="card-img-top">{this.props.titulo}</Link>

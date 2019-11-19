@@ -11,10 +11,11 @@ import {UserCuentos} from './components/userUI/UserCuentos'
 import {BotonLeerCuento} from './components/userUI/BotonLeerCuento'
 import {GestionarComentarios} from './components/tereUI/GestionarComentarios'
 import {ListadoComentarios} from './components/tereUI/ListadoComentarios'
-// import {Test} from './components/Test'
+import {Test} from './components/Test'
 import {Menu} from './components/userUI/Menu'
 import {Login} from './components/userUI/Login'
 import {Trabalenguas} from './components/tereUI/Trabalenguas'
+import {TrabalenguasUI} from './components/userUI/TrabalenguasUI'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -37,10 +38,12 @@ const rutas =(
     <Route path="/leercuento/:id" component={BotonLeerCuento} />
     <Route path="/gestionarcomentarios/:id" component={GestionarComentarios} />
     <Route path="/listadocomentarios" component={ListadoComentarios} />
-    {/* <Route path="/test" component={Test} /> */}
+    <Route path="/test" component={Test} />
     <Route path="/menu" component={Menu} />
     <Route path="/login" component={Login} />
     <Route path="/trabalenguas" component={Trabalenguas} />
+    <Route path="/trabalenguasuser/:tema" component={TrabalenguasUI} />
+
     </BrowserRouter>
 )
 
