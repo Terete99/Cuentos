@@ -28,7 +28,7 @@ class ShowComentario extends Component{
     render() { 
         return(
         <div>
-            <Menu></Menu>
+            <Menu {...this.props} ></Menu>
             <h2> {this.props.titulo} </h2>
             <p>{this.props.texto} </p>
             {this.props.estado}

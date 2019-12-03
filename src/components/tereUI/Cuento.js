@@ -33,6 +33,7 @@ export class Cuento extends Component {
     }
 
     cuentos = mongo.db('miapp').collection('cuentos')
+    
 
     rendertitulo = () => {
         return <input
@@ -137,13 +138,10 @@ export class Cuento extends Component {
     render() {
         //inputs que graban en la db
         return (
-            <div>
-                <Menu></Menu>
+            <div className="fondo">
+                <Menu {...this.props} ></Menu>
             <div id="#mimodal" className="modal2-content">
-                
-                
-                
-
+            
                 {this.rendertitulo()}
                 {this.renderargumento()}
                 {this.renderimagen()}

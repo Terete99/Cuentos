@@ -4,9 +4,8 @@ import DropdownButton from 'react-bootstrap/DropdownButton'
 import Dropdown from 'react-bootstrap/Dropdown'
 import { mongo } from '../../index'
 
-
 export class Menu extends Component {
-  state = { tematicas: [] }
+  state = { tematicas: [], trabalenguas: [] }
 
   trabalenguas = mongo.db('miapp').collection('trabalenguas')
   componentDidMount = () => {
@@ -18,6 +17,32 @@ export class Menu extends Component {
         this.setState({ tematicas: t })
         console.log(t)
       })
+
+    this.trabalenguas.aggregate([
+      { $group: { _id: "$tematica" } }
+    ])
+      .toArray().then(t => {
+        this.setState({ tematicas: t })
+        console.log(t)
+      })
+  }
+  trabalenguas = mongo.db('miapp').collection('trabalenguas')
+
+  renderSelectTemas = () => {
+    return (
+      <select
+        className="btn btn-primary"
+        onChange={e => {
+          this.trabalenguas.aggregate([
+            { $match: { tematica: e.target.value } }
+          ]).toArray().then(t => {
+            this.setState({ trabalenguas: t })
+            console.log(t)
+          })
+        }}>
+        {this.state.tematicas.map((t, i) => <option key={i}> {t._id} </option>)}
+      </select>
+    )
   }
 
 
@@ -26,7 +51,7 @@ export class Menu extends Component {
 
     return (
       <div>
-      <div >
+
 
         <Navbar expand="lg" variant="info" bg="light">
 
@@ -45,19 +70,22 @@ export class Menu extends Component {
           </Navbar.Brand>
           <DropdownButton onClick={() => this.props.history.push('/login')} id="dropdown-basic-button" title="Login">Login
           </DropdownButton> &nbsp;&nbsp;&nbsp;&nbsp;
-          {/* <Navbar.Brand > */}
-          <DropdownButton id="dropdown-basic-button" title="Trabalenguas">
-            {this.state.tematicas.map((tema, i) => {
-              return (<Dropdown.Item key={i} onClick={e => this.props.history.push(`/trabalenguasuser/${tema._id}`)} >{tema._id}</Dropdown.Item>)
-            })}
-          </DropdownButton>
-          {/* </Navbar.Brand> */}
-        </Navbar>
+
+          </Navbar>
+
+        {this.renderSelectTemas()}
+        {this.state.trabalenguas.map((t, i) => <div className="container" key={i}>
+
+          <div className="card">
+            <div className="card-body">{t.texto}</div>
+          </div>
+
+        </div>)}
+
 
       </div>
-      <div className="fondo">
-      </div>
-</div>
+
+
     )
   }
 }

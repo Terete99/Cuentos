@@ -34,7 +34,7 @@ export class GestionarComentarios extends Component {
 
     return (
       <div>
-        <Menu></Menu>
+        <Menu {...this.props} ></Menu>
         {this.state.cuento.comentarios.map((c, i) => {
 
           return <div key={i}>

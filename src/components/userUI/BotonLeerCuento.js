@@ -3,7 +3,6 @@ import { mongo } from '../../index'
 import { ObjectId } from 'bson'
 import ReactPlayer from 'react-player'
 import { Onecomentario } from '../tereUI/Comentario'
-import { Link } from 'react-router-dom'
 import { CuentoComponent } from '../tereUI/Cuento'
 import { Menu } from './Menu'
 
@@ -25,8 +24,8 @@ export class BotonLeerCuento extends Component {
 
     render() {
         return (
-            <div>
-                <Menu></Menu>
+            <div className="fondo">
+                <Menu {...this.props} ></Menu>
 
                 {/* props del hijo al padre */}
                 <LeerCuento {...this.state.cuento} />
@@ -35,8 +34,6 @@ export class BotonLeerCuento extends Component {
         )
     }
 }
-
-
 class LeerCuento extends Component {
     state = {
         comentario: ''
@@ -46,20 +43,19 @@ class LeerCuento extends Component {
     render() {
         return (
             <div className="div-leercuento" >
-                <div className="modal-dialog modal-lg"  >
+                <div className="modal-dialog modal-dialog-centered"  >
 
                     <div className="modal-content" >
-                        <Link to="/usercuentos">Volver</Link>
                         <div className="div-leercuento" >
                             <h3>{this.props.tematica}</h3>
                             {/* le paso las props  */}
-                            <img src={this.props.imagen} alt="No disponible" width="550px" />
+                            <img src={this.props.imagen} alt="No disponible" width="300px" />
                         </div>
                         <div className="div-leercuento" >
                             <h1 className="div-leercuento" >{this.props.titulo}</h1>
                             <p className="card-text">{this.props.argumento}</p>
 
-                            <ReactPlayer width="700px" height="500px" url={this.props.video} className="div-leercuento" />
+                            <ReactPlayer width="auto" height="auto" url={this.props.video}  />
                             <h4><small className="text-muted">{this.props.moraleja}</small></h4>
                             <hr></hr>
                         </div>

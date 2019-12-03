@@ -17,16 +17,13 @@ export class Cuentos extends Component {
     render() {
 
         return (
+
             <div>
-                
-                <div>
-                </div>
+                <Menu {...this.props} ></Menu>
                 {this.state.cuentos.map((cuento, i) => {
                     return <CardCuento key={i}
                         {...cuento} />
                 })}
-                {/* ${this.state.cuento._id} */}
-
             </div>
         )
     }
@@ -35,15 +32,15 @@ export class Cuentos extends Component {
 export default class CardCuento extends Component {
     render() {
         return (
+            <div className="fondo" >
+                <div className="div-card " >
 
-            <div className="div-card">
-                <Menu></Menu>
-
-                <div style={{ padding: 20, textAlign: "center" }} >
-                    <Link to={`/cuento/${this.props._id}`} className="card-img-top">{this.props.titulo}</Link>
-                    <div className="w3-container w3-center">
-                        <img src={this.props.imagen} heigth="100px" width="100px" alt="no hay imagen" />
-                        <p>{this.props.texto}</p>
+                    <div style={{ padding: 20, textAlign: "center" }} >
+                        <Link to={`/cuento/${this.props._id}`} className="card-img-top">{this.props.titulo}</Link>
+                        <div className="w3-container w3-center">
+                            <img src={this.props.imagen} heigth="100px" width="100px" alt="no hay imagen" />
+                            <p>{this.props.texto}</p>
+                        </div>
                     </div>
                 </div>
             </div>

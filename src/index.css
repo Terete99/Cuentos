@@ -1,5 +1,6 @@
 .centrar{
     text-align: center;
+
 }
 .manita{
     cursor:pointer;
@@ -27,12 +28,11 @@ i.material-icons:hover{
     width: 25%;
     height: 175px;
     float: left;
-    padding: 20px;
+    padding: 10px;
     margin: 5px;
     border-style: outset;
     color:palevioletred;
     box-shadow: 3px 3px;
-
 
 }
 .modal2 {
@@ -95,10 +95,7 @@ i.material-icons:hover{
   padding: 100px;
   
  }
- /* .imgCarousel{
-   width: 600px;
-   height: 600px;
- } */
+
  .div-carousel {
   text-align: center;
   
@@ -120,35 +117,69 @@ body {
     text-align: right
   }
 
-  .form-gradient .header {
-    border-top-left-radius: .3rem;
-    border-top-right-radius: .3rem; }
   
-  .form-gradient input[type=text]:focus:not([readonly]) {
-    border-bottom: 1px solid #fd9267;
-    -webkit-box-shadow: 0 1px 0 0 #fd9267;
-    box-shadow: 0 1px 0 0 #fd9267; }
-  
-  .form-gradient input[type=text]:focus:not([readonly]) + label {
-    color: #4f4f4f; }
-  
-  .form-gradient input[type=password]:focus:not([readonly]) {
-    border-bottom: 1px solid #fd9267;
-    -webkit-box-shadow: 0 1px 0 0 #fd9267;
-    box-shadow: 0 1px 0 0 #fd9267; }
-  
-  .form-gradient input[type=password]:focus:not([readonly]) + label {
-    color: #4f4f4f; }
 
    .trabalenguas{
      text-align: center;
     
    }
-   img {
+   /* img {
     border-radius: 8px;
     width:"100%";
-  }
+  } */
   .fondo{
-    background-image: url("fondo.jpg");
+    /* background-image: url("fondo.jpg"); */
     width:"100%";
+    
+  }
+  .box {
+     text-align: center;
+     border-width: 1px;
+     border-radius: 50px;
+     background-color: white;
+     padding: 20px;
+     width: 70%;
+     margin: auto;
+     
+  }
+  h1 { color: #dc3545; }
+  .link {
+    text-decoration:none; color: white;
+  }
+  .divbutton {
+    text-align: center;
+    padding: 20px;
+     width: 70%;
+     margin: auto;
+
+  }
+  .imgPor {
+    text-align:center;
+    padding-top: 20px;
+    margin-left: 20px;
+     
+  }
+  .btn-group .button {
+    background-color: rgb(29, 126, 172); /* Green */
+    border: 1px solid rgb(204, 211, 214);
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    width: 150px;
+    display: block;
+  }
+  
+  .btn-group .button:not(:last-child) {
+    border-bottom: none; /* Prevent double borders */
+  }
+  
+  .btn-group .button:hover {
+    background-color: #6a7c7a;
+  }
+
+  .entrada {
+    padding: 50;
   }

@@ -35,20 +35,39 @@ export class TrabalenguasUI extends Component {
       })
   }
   trabalenguas = mongo.db('miapp').collection('trabalenguas')
+  //vuelvo a hacer el agregate para cambiar el state de cada tema
+  renderSelectTemas = () => {
+    return (
+      <select
+      className="btn btn-primary"
+        onChange={e => {
+          this.trabalenguas.aggregate([
+            { $match: { tematica: e.target.value } }
+          ]).toArray().then(t => {
+            this.setState({ trabalenguas: t })
+            console.log(t)
+          })
+        }}>
+        {this.state.tematicas.map((t, i) => <option key={i}> {t._id} </option>)}
+      </select>
+    )
+  }
   render() {
 
     return (
       <div>
-      <Menu></Menu>
-      <div className="fondo">
-        {this.state.trabalenguas.map((t, i) => <div className="container" key={i}>{i}
+        <Menu {...this.props} ></Menu>
+        <div className="fondo " >
+          {this.renderSelectTemas()}
+          {this.state.trabalenguas.map((t, i) => <div className="container" key={i}>
 
-          <div className="card">
-            <div className="card-body">{t.texto}</div>
-          </div>
+            <div className="card">
+              <div className="card-body">{t.texto}</div>
+            </div>
 
-        </div>)}
-      </div>
+          </div>)}
+        </div>
+        {JSON.stringify(this.state, null, 2)}
       </div>
 
 

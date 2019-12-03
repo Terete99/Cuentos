@@ -15,8 +15,8 @@ export class UserCuentos extends Component {
 
     cuentos = mongo.db('miapp').collection('cuentos')
     render() {
-        return (<div>
-            <Menu></Menu>
+        return (<div className="fondo">
+            <Menu {...this.props} ></Menu>
             <div className="row">
                 <div className="col-4" >
                     
