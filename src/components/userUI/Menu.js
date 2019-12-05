@@ -40,6 +40,7 @@ export class Menu extends Component {
             console.log(t)
           })
         }}>
+          <option> hola </option>
         {this.state.tematicas.map((t, i) => <option key={i}> {t._id} </option>)}
       </select>
     )
@@ -72,7 +73,7 @@ export class Menu extends Component {
           </DropdownButton> &nbsp;&nbsp;&nbsp;&nbsp;
 
           </Navbar>
-
+        < h3>Trabalenguas</h3>
         {this.renderSelectTemas()}
         {this.state.trabalenguas.map((t, i) => <div className="container" key={i}>
 

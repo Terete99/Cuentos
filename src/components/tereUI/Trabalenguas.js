@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { mongo } from '../../index'
-import { Menu } from '../userUI/Menu'
 
 
 export class TrabalenguasComponent {
@@ -49,7 +48,6 @@ export class Trabalenguas extends Component {
   render() {
     return (
       <div>
-        <Menu {...this.props} ></Menu>
         <div id="#mimodal" className="modal2-content">
           {this.rendertexto()}
           {this.rendertematica()}

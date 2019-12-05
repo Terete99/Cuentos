@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 // import {Home} from './components/GestionProductos'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Route, Link } from 'react-router-dom'
 import { Cuento } from './components/tereUI/Cuento'
 import { Stitch, RemoteMongoClient } from "mongodb-stitch-browser-sdk";
 import { Cuentos } from './components/tereUI/Cuentos'
@@ -18,6 +18,8 @@ import { Trabalenguas } from './components/tereUI/Trabalenguas'
 import { TrabalenguasUI } from './components/userUI/TrabalenguasUI'
 import { FormularioEntradas, ListadoEntradas, } from './components/Blog'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Nav'
 
 
 export const stitch = Stitch.initializeAppClient('appcuentos-kcyur')
@@ -26,12 +28,35 @@ export const stitch = Stitch.initializeAppClient('appcuentos-kcyur')
 // }
 export const mongo = stitch.getServiceClient(RemoteMongoClient.factory, 'mongodb-atlas')
 
+const menu1 = (
+    <div>
+
+
+
+
+
+        <Navbar bg="light" variant="info">
+            {/* mi app */}
+            <Navbar.Brand><Link to={`/cuentos`}> Cuentos </Link></Navbar.Brand>
+            <Nav className="mr-auto link">
+                {/* el del user */}
+                <Nav.Link > <Link to={`/trabalenguasuser`} >  Trabalenguas </Link></Nav.Link>
+                <Nav.Link> <Link to={`/usercuentos`} >  Cuentos user </Link></Nav.Link>
+                <Nav.Link> <Link to={`/login`} > Login </Link></Nav.Link>
+            </Nav>
+        </Navbar>
+
+    </div>
+
+)
 
 const rutas = (
 
     <BrowserRouter>
 
-        <Route exact path="/" component={Menu} />
+        {menu1}
+
+
         <Route path="/cuento/:id" component={Cuento} />
         <Route path="/cuentos" component={Cuentos} />
         <Route path="/comentario" component={Comentario} />
@@ -43,7 +68,7 @@ const rutas = (
         <Route path="/menu" component={Menu} />
         <Route path="/login" component={Login} />
         <Route path="/trabalenguas" component={Trabalenguas} />
-        <Route path="/trabalenguasuser/:id" component={TrabalenguasUI} />
+        <Route path="/trabalenguasuser/" component={TrabalenguasUI} />
         <Route path="/blog/:id" component={FormularioEntradas} />
         <Route path="/blog2" component={ListadoEntradas} />
         <Route path="/blog" component={ListadoEntradas}

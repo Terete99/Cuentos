@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { mongo } from '../../index'
-import { Menu } from './Menu'
+
 
 
 export class TrabalenguasUI extends Component {
@@ -36,8 +36,9 @@ export class TrabalenguasUI extends Component {
   }
   trabalenguas = mongo.db('miapp').collection('trabalenguas')
   //vuelvo a hacer el agregate para cambiar el state de cada tema
-  renderSelectTemas = () => {
+   renderSelectTemas = () => {
     return (
+    
       <select
       className="btn btn-primary"
         onChange={e => {
@@ -48,16 +49,22 @@ export class TrabalenguasUI extends Component {
             console.log(t)
           })
         }}>
-        {this.state.tematicas.map((t, i) => <option key={i}> {t._id} </option>)}
+          <option>Trabalenguas</option>
+        {this.state.tematicas.map((t, i) => {
+          return (
+          <option key={i}> {t._id} </option>)}
+          
+        )}
       </select>
+      
     )
   }
   render() {
 
     return (
       <div>
-        <Menu {...this.props} ></Menu>
         <div className="fondo " >
+        
           {this.renderSelectTemas()}
           {this.state.trabalenguas.map((t, i) => <div className="container" key={i}>
 

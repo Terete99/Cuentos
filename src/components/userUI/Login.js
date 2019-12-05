@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { UserPasswordCredential } from "mongodb-stitch-browser-sdk";
 import { stitch } from '../../index';
-import { Menu } from './Menu'
+
 
 
 export class Login extends Component {
@@ -27,7 +27,7 @@ export class Login extends Component {
   render() {
     return (
       <div className="fondo">
-        <Menu {...this.props} ></Menu>
+        
         <div className="container">
 
           <br />

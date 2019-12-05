@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { mongo } from '../../index'
 import { Link } from 'react-router-dom'
-import { Menu } from '../userUI/Menu'
 
 export class Cuentos extends Component {
     state = { cuentos: [] }
@@ -19,7 +18,10 @@ export class Cuentos extends Component {
         return (
 
             <div>
-                <Menu {...this.props} ></Menu>
+                <Link to={`/cuento/nuevo`} >  Crear cuento </Link>
+                <Link to={`/listadocomentarios`} >  Listado Comentarios </Link>
+                <Link to={`/trabalenguas`} > Crear Trabalenguas </Link>
+
                 {this.state.cuentos.map((cuento, i) => {
                     return <CardCuento key={i}
                         {...cuento} />

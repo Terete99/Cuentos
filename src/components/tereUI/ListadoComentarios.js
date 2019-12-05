@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { mongo } from '../../index'
 import { Link } from 'react-router-dom'
-import { Menu } from '../userUI/Menu'
 
 export class ListadoComentarios extends Component {
   state = {
@@ -28,7 +27,7 @@ export class ListadoComentarios extends Component {
   render() {
     return (
       <div>
-        <Menu></Menu>
+        
         {this.state.cuentosConComentarios.map( (c, i)=>{
           return (
             <div key={i}>

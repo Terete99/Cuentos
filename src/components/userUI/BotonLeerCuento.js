@@ -4,7 +4,7 @@ import { ObjectId } from 'bson'
 import ReactPlayer from 'react-player'
 import { Onecomentario } from '../tereUI/Comentario'
 import { CuentoComponent } from '../tereUI/Cuento'
-import { Menu } from './Menu'
+
 
 
 
@@ -25,7 +25,7 @@ export class BotonLeerCuento extends Component {
     render() {
         return (
             <div className="fondo">
-                <Menu {...this.props} ></Menu>
+                
 
                 {/* props del hijo al padre */}
                 <LeerCuento {...this.state.cuento} />

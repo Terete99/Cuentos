@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { mongo } from '../../index'
 import { ObjectId } from 'bson'
 import '../../index.css'
-import { Menu } from '../userUI/Menu'
 
 export class Onecomentario {
     constructor() {
@@ -139,7 +138,6 @@ export class Cuento extends Component {
         //inputs que graban en la db
         return (
             <div className="fondo">
-                <Menu {...this.props} ></Menu>
             <div id="#mimodal" className="modal2-content">
             
                 {this.rendertitulo()}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { mongo } from '../../index'
 import Carousel from 'react-bootstrap/Carousel'
-import { Menu } from './Menu'
+
 
 
 export class UserCuentos extends Component {
@@ -16,7 +16,6 @@ export class UserCuentos extends Component {
     cuentos = mongo.db('miapp').collection('cuentos')
     render() {
         return (<div className="fondo">
-            <Menu {...this.props} ></Menu>
             <div className="row">
                 <div className="col-4" >
                     
