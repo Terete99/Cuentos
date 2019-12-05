@@ -74,7 +74,6 @@ export class TrabalenguasUI extends Component {
 
           </div>)}
         </div>
-        {JSON.stringify(this.state, null, 2)}
       </div>
 
 

@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { mongo } from '../../index'
 import { Link } from 'react-router-dom'
-
+import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Nav'
 export class Cuentos extends Component {
     state = { cuentos: [] }
 
@@ -18,9 +19,11 @@ export class Cuentos extends Component {
         return (
 
             <div>
-                <Link to={`/cuento/nuevo`} >  Crear cuento </Link>
-                <Link to={`/listadocomentarios`} >  Listado Comentarios </Link>
-                <Link to={`/trabalenguas`} > Crear Trabalenguas </Link>
+                <Navbar variant="light" bg="light">
+                    <Nav.Link onClick={ () => this.props.history.push('/cuento/nuevo') }>  Crear cuento </Nav.Link>
+                    <Nav.Link onClick={ () => this.props.history.push('/listadocomentarios') }>  Listado Comentarios </Nav.Link>
+                    <Nav.Link onClick={() => this.props.history.push('/trabalenguas')}> Crear Trabalenguas </Nav.Link>
+                </Navbar>
 
                 {this.state.cuentos.map((cuento, i) => {
                     return <CardCuento key={i}

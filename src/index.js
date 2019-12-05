@@ -23,9 +23,7 @@ import Nav from 'react-bootstrap/Nav'
 
 
 export const stitch = Stitch.initializeAppClient('appcuentos-kcyur')
-// if (!stitch.auth.isLoggedIn){
-//     stitch.auth.loginWithCredential(new AnonymousCredential())
-// }
+
 export const mongo = stitch.getServiceClient(RemoteMongoClient.factory, 'mongodb-atlas')
 
 const menu1 = (
@@ -34,15 +32,15 @@ const menu1 = (
 
 
 
-
+    
         <Navbar bg="light" variant="info">
             {/* mi app */}
-            <Navbar.Brand><Link to={`/cuentos`}> Cuentos </Link></Navbar.Brand>
+            <Navbar.Brand><Link to={`/cuentos`}> Admin </Link></Navbar.Brand>
             <Nav className="mr-auto link">
                 {/* el del user */}
-                <Nav.Link > <Link to={`/trabalenguasuser`} >  Trabalenguas </Link></Nav.Link>
-                <Nav.Link> <Link to={`/usercuentos`} >  Cuentos user </Link></Nav.Link>
-                <Nav.Link> <Link to={`/login`} > Login </Link></Nav.Link>
+                <Navbar.Brand > <Link to={`/trabalenguasuser`} >  Trabalenguas </Link></Navbar.Brand>
+                <Navbar.Brand> <Link to={`/usercuentos`} >  Cuentos </Link></Navbar.Brand>
+                <Navbar.Brand> <Link to={`/login`} > Login </Link></Navbar.Brand>
             </Nav>
         </Navbar>
 
