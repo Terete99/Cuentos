@@ -49,6 +49,7 @@ export class Trabalenguas extends Component {
     return (
       <div>
         <div id="#mimodal" className="modal2-content">
+        <h3>Nuevo trabalenguas</h3>
           {this.rendertexto()}
           {this.rendertematica()}
 

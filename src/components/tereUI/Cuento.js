@@ -139,6 +139,7 @@ export class Cuento extends Component {
         return (
             <div className="fondo">
             <div id="#mimodal" className="modal2-content">
+            <h3>Nuevo cuento</h3>
             
                 {this.rendertitulo()}
                 {this.renderargumento()}

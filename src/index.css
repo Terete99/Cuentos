@@ -33,6 +33,15 @@ i.material-icons:hover{
     border-style: outset;
     color:palevioletred;
     box-shadow: 3px 3px;
+}
+
+.div-card2 {
+  width: 30px;
+  border-style: inset;
+  border-radius: 30px;
+  color:palevioletred;
+  box-shadow: 3px 3px;
+  text-align: center;
 
 }
 .modal2 {
