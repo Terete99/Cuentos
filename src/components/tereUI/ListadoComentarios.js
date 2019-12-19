@@ -18,7 +18,6 @@ export class ListadoComentarios extends Component {
       .toArray()
       .then(cuentosConComentarios => {
         this.setState({ cuentosConComentarios: cuentosConComentarios } )
-
         console.log(cuentosConComentarios)
       })
 

@@ -18,11 +18,12 @@ export class Cuentos extends Component {
 
         return (
 
-            <div>
+            <div className="fondo">
                 <Navbar variant="light" bg="light">
                     <Nav.Link onClick={ () => this.props.history.push('/cuento/nuevo') }>  Crear cuento </Nav.Link>
                     <Nav.Link onClick={ () => this.props.history.push('/listadocomentarios') }>  Listado Comentarios </Nav.Link>
-                    <Nav.Link onClick={() => this.props.history.push('/trabalenguas')}> Crear Trabalenguas </Nav.Link>
+                    <Nav.Link onClick={ () => this.props.history.push('/trabalenguas')}> Crear Trabalenguas </Nav.Link>
+                    <Nav.Link onClick={ () => this.props.history.push('/adivinanza')} >  Crear Adivinanza </Nav.Link>
                 </Navbar>
 
                 {this.state.cuentos.map((cuento, i) => {

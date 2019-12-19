@@ -26,27 +26,21 @@ export class Login extends Component {
 
   render() {
     return (
-      <div className="fondo">
-        
-        <div className="container">
-
-          <br />
-          <div className="form-inline">
-            <input
-              onChange={e => this.setState({ username: e.target.value })}
-              className="form-control"
-              placeholder="nombre de usuario" />&nbsp;
+        <div className="login" >
+          <h4 style={{textAlign:"center"}}>Inicia Sesión</h4>
           <input
-              type="password"
-              onChange={e => this.setState({ password: e.target.value })}
-              className="form-control"
-              placeholder="password" />&nbsp;&nbsp;&nbsp;&nbsp;
-          <button onClick={this.login} className="btn btn-primary"> Stitch Login </button> &nbsp;
-          <button onClick={this.logout} className="btn btn-primary"> Logout </button>
-
-          </div>
+            onChange={e => this.setState({ username: e.target.value })}
+            className="form-control"
+            placeholder="Nombre de usuario" />&nbsp;
+          <input
+            type="password"
+            onChange={e => this.setState({ password: e.target.value })}
+            className="form-control"
+            placeholder="Contraseña" /><br></br>
+          <button onClick={this.login} className="btn btn-primary"> Iniciar sesión</button> &nbsp;
+          <button onClick={this.logout} className="btn btn-primary" > Cerrar sesión </button>
         </div>
-      </div>
+
     )
   }
 }

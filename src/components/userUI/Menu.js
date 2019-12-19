@@ -1,89 +1,17 @@
 import React, { Component } from 'react'
-import Navbar from 'react-bootstrap/Navbar'
-import DropdownButton from 'react-bootstrap/DropdownButton'
-import Dropdown from 'react-bootstrap/Dropdown'
-import { mongo } from '../../index'
+import { UserCuentos } from './UserCuentos'
+
+
 
 export class Menu extends Component {
-  state = { tematicas: [], trabalenguas: [] }
-
-  trabalenguas = mongo.db('miapp').collection('trabalenguas')
-  componentDidMount = () => {
-
-    this.trabalenguas.aggregate([
-      { $group: { _id: "$tematica" } }
-    ])
-      .toArray().then(t => {
-        this.setState({ tematicas: t })
-        console.log(t)
-      })
-
-    this.trabalenguas.aggregate([
-      { $group: { _id: "$tematica" } }
-    ])
-      .toArray().then(t => {
-        this.setState({ tematicas: t })
-        console.log(t)
-      })
-  }
-  trabalenguas = mongo.db('miapp').collection('trabalenguas')
-
-  renderSelectTemas = () => {
-    return (
-      <select
-        className="btn btn-primary"
-        onChange={e => {
-          this.trabalenguas.aggregate([
-            { $match: { tematica: e.target.value } }
-          ]).toArray().then(t => {
-            this.setState({ trabalenguas: t })
-            console.log(t)
-          })
-        }}>
-          <option> hola </option>
-        {this.state.tematicas.map((t, i) => <option key={i}> {t._id} </option>)}
-      </select>
-    )
-  }
-
-
-
+ 
   render() {
 
     return (
-      <div>
-
-
-        <Navbar expand="lg" variant="info" bg="light">
-
-          <Navbar.Brand  >
-            <DropdownButton id="dropdown-basic-button" title="TereUI">
-              <Dropdown.Item onClick={() => this.props.history.push('/cuentos')}>  Cuentos  </Dropdown.Item>
-              <Dropdown.Item onClick={() => this.props.history.push('/cuento/nuevo')}>  Crear cuento  </Dropdown.Item>
-              <Dropdown.Item onClick={() => this.props.history.push('/listadocomentarios')}>Gestionar Comentarios</Dropdown.Item>
-              <Dropdown.Item onClick={() => this.props.history.push('/trabalenguas')}>Gestionar Trabalenguas</Dropdown.Item>
-            </DropdownButton>
-          </Navbar.Brand>
-          <Navbar.Brand >
-            <DropdownButton id="dropdown-basic-button" title="Cuentos" >
-              <Dropdown.Item onClick={() => this.props.history.push('/UserCuentos')}>Cuentos</Dropdown.Item>
-            </DropdownButton>
-          </Navbar.Brand>
-          <DropdownButton onClick={() => this.props.history.push('/login')} id="dropdown-basic-button" title="Login">Login
-          </DropdownButton> &nbsp;&nbsp;&nbsp;&nbsp;
-
-          </Navbar>
-        < h3>Trabalenguas</h3>
-        {this.renderSelectTemas()}
-        {this.state.trabalenguas.map((t, i) => <div className="container" key={i}>
-
-          <div className="card">
-            <div className="card-body">{t.texto}</div>
-          </div>
-
-        </div>)}
-
-
+      <div className="fondo">
+        <h1 style={{ textAlign: "center" }}>Cuentos, Trabalenguas Y Adivinanzas </h1>
+        <UserCuentos>
+        </UserCuentos>
       </div>
 
 

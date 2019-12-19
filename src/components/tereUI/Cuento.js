@@ -32,7 +32,7 @@ export class Cuento extends Component {
     }
 
     cuentos = mongo.db('miapp').collection('cuentos')
-    
+
 
     rendertitulo = () => {
         return <input
@@ -89,31 +89,17 @@ export class Cuento extends Component {
 
     rendertematica = () => {
         return <input
-        value= {this.state.cuento.tematica}
-        title= "Introduce una temática"
-        className= "form-control"
-        placeholder="Temática"
-        onChange= {(c) => { this.setState({ cuento: {...this.state.cuento, tematica: c.target.value } }) }} />
+            value={this.state.cuento.tematica}
+            title="Introduce una temática"
+            className="form-control"
+            placeholder="Temática"
+            onChange={(c) => { this.setState({ cuento: { ...this.state.cuento, tematica: c.target.value } }) }} />
     }
 
     grabar = () => {
         this.cuentos.insertOne(this.state.cuento)
 
     }
-    // grabar = () =>{ 
-    //     fetch('http://localhost:3000/tere/cuentos', {
-    //         method:'POST',
-    //         headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-    //         body: JSON.stringify(this.state.cuento)
-    //     }).then( respuesta=> { respuesta.json().then( json => {
-    //         this.setState({upsertedId: json.upsertedId._id})
-    //         setTimeout( () => {
-    //             this.setState({upsertedId: ''})
-    //         }, 1000)
-
-    //     })} )
-    // }
-
 
     componentDidMount() {
         //pasarle el parámetro del id en la url para edición
@@ -138,51 +124,51 @@ export class Cuento extends Component {
         //inputs que graban en la db
         return (
             <div className="fondo">
-            <div id="#mimodal" className="modal2-content">
-            <h3>Nuevo cuento</h3>
-            
-                {this.rendertitulo()}
-                {this.renderargumento()}
-                {this.renderimagen()}
-                {this.rendermoraleja()}
-                {this.rendervideo()}
-                {this.rendertematica()}
-                {this.rendertexto()}
+                <div id="#mimodal" className="modal2-content">
+                    <h3>Nuevo cuento</h3>
 
-                {/* boton comentar */}
+                    {this.rendertitulo()}
+                    {this.renderargumento()}
+                    {this.renderimagen()}
+                    {this.rendermoraleja()}
+                    {this.rendervideo()}
+                    {this.rendertematica()}
+                    {this.rendertexto()}
 
-                <button onClick={e => {
-                    // crear un objeto con la estructura de Onecomentario
-                    let Nuevocomentario = new Onecomentario()
-                    // meter el valor del input en Nuevocomentario.texto
-                    Nuevocomentario.texto = this.state.texto
-                    // this.state.cuento.comentarios.push(Onecomentario)
-                    // hacer copia del array del state:
-                    let copia = this.state.cuento.comentarios || []
-                    copia.push(Nuevocomentario)
-                    console.log(copia)
-                    this.setState({ cuento: { ...this.state.cuento, comentarios: copia } })
-                    console.log(this.state.cuento)
+                    {/* boton comentar */}
 
-                }}> comentar </button>
-                {/* boton que inserta */}
-                <button onClick={e => {
-                    let c = this.state.cuento
-                    delete c._id
-                    this.cuentos.insertOne(c)
-                    this.setState({ cuento: new CuentoComponent() })
-                }}>Grabar</button>
-                {/* boton que modifica */}
-                <button onClick={e => {
-                    this.cuentos.findOneAndReplace({ _id: new ObjectId(this.props.match.params.id) }, this.state.cuento)
-                    this.setState({ cuento: new CuentoComponent() })
-                }}>Modificar</button>
-                {/* boton que elimina */}
-                <button onClick={e => {
-                    this.cuentos.deleteOne({ _id: new ObjectId(this.props.match.params.id) })
-                    this.setState({ cuento: new CuentoComponent() })
-                }}>Borrar</button>
-            </div>
+                    <button onClick={e => {
+                        // crear un objeto con la estructura de Onecomentario
+                        let Nuevocomentario = new Onecomentario()
+                        // meter el valor del input en Nuevocomentario.texto
+                        Nuevocomentario.texto = this.state.texto
+                        // this.state.cuento.comentarios.push(Onecomentario)
+                        // hacer copia del array del state:
+                        let copia = this.state.cuento.comentarios || []
+                        copia.push(Nuevocomentario)
+                        console.log(copia)
+                        this.setState({ cuento: { ...this.state.cuento, comentarios: copia } })
+                        console.log(this.state.cuento)
+
+                    }}> comentar </button>
+                    {/* boton que inserta */}
+                    <button onClick={e => {
+                        let c = this.state.cuento
+                        delete c._id
+                        this.cuentos.insertOne(c)
+                        this.setState({ cuento: new CuentoComponent() })
+                    }}>Grabar</button>
+                    {/* boton que modifica */}
+                    <button onClick={e => {
+                        this.cuentos.findOneAndReplace({ _id: new ObjectId(this.props.match.params.id) }, this.state.cuento)
+                        this.setState({ cuento: new CuentoComponent() })
+                    }}>Modificar</button>
+                    {/* boton que elimina */}
+                    <button onClick={e => {
+                        this.cuentos.deleteOne({ _id: new ObjectId(this.props.match.params.id) })
+                        this.setState({ cuento: new CuentoComponent() })
+                    }}>Borrar</button>
+                </div>
             </div>
         )
 
