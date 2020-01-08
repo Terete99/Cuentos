@@ -37,12 +37,14 @@ i.material-icons{
 }
 
 .div-card2 {
-  width: 30px;
+  width: 10px;
   border-style: inset;
-  border-radius: 30px;
+  border-radius: 10px;
   color:palevioletred;
   box-shadow: 3px 3px;
   text-align: center;
+  padding: 25px;
+  margin: 50px;
 
 }
 .modal2 {
@@ -89,7 +91,8 @@ i.material-icons{
   }
   .div-leercuento{
     text-align: center;
-    padding: 40px;
+    padding: 20px;
+    
   }
   .crearCuento{
     padding: 5%;
@@ -188,4 +191,19 @@ h1 { color: #dc3545; }
   }
   .fondo{
     background-color: rgb(248, 249, 250);
+  }
+
+  .registrar{
+    margin:1% auto;
+    padding: 40px;
+    text-align: center;
+    width: 50%;
+    height: 40%;
+  }
+
+  .videoCuento{
+    text-align: center;
+    padding: 40px;
+    width: 980px;
+    height: 580px;
   }

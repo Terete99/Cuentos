@@ -35,7 +35,7 @@ export class Cuentos extends Component {
     }
 }
 
-export default class CardCuento extends Component {
+export class CardCuento extends Component {
     render() {
         return (
             <div className="fondo" >

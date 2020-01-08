@@ -4,10 +4,10 @@ import './index.css'
 // import {Home} from './components/GestionProductos'
 import { BrowserRouter, Route, Link } from 'react-router-dom'
 import { Cuento } from './components/tereUI/Cuento'
-import { Stitch, RemoteMongoClient } from "mongodb-stitch-browser-sdk";
+import { Stitch, RemoteMongoClient, AnonymousCredential  } from "mongodb-stitch-browser-sdk";
 import { Cuentos } from './components/tereUI/Cuentos'
 import { Comentario } from './components/tereUI/Comentario'
-import { SelecCuentos } from './components/userUI/UserCuentos'
+import { SelecCuentos, VideoCuento } from './components/userUI/UserCuentos'
 import { BotonLeerCuento } from './components/userUI/BotonLeerCuento'
 import { GestionarComentarios } from './components/tereUI/GestionarComentarios'
 import { ListadoComentarios } from './components/tereUI/ListadoComentarios'
@@ -23,8 +23,17 @@ import Nav from 'react-bootstrap/Nav'
 import { Adivinanza, ListadoAdivinanza, Adivina } from './components/tereUI/Adivinanza'
 
 
+//login anonimo User
 export const stitch = Stitch.initializeAppClient('appcuentos-kcyur')
 export const mongo = stitch.getServiceClient(RemoteMongoClient.factory, 'mongodb-atlas')
+if (!stitch.auth.isLoggedIn){
+    stitch.auth.loginWithCredential(new AnonymousCredential())
+}
+
+
+//menu Tere
+// export const stitch = Stitch.initializeAppClient('appcuentos-kcyur')
+// export const mongo = stitch.getServiceClient(RemoteMongoClient.factory, 'mongodb-atlas')
 
 
 
@@ -38,15 +47,17 @@ const menu1 = (
             {/* <Navbar.Brand><Link to={`/cuentos`}> Admin </Link></Navbar.Brand> */}
             <Nav className="mr-auto link">
                 {/* el del user */}
-                <Navbar.Brand > <Link to={`/menu`} >  Menú </Link></Navbar.Brand>
-                <Navbar.Brand > <Link to={`/trabalenguasuser`} >  Trabalenguas </Link></Navbar.Brand>
+                {/* <Navbar.Brand > <Link to={`/menu`} >  Menú </Link></Navbar.Brand> */}
                 <Navbar.Brand> <Link to={`/usercuentos`} >  Cuentos </Link></Navbar.Brand>
                 <Navbar.Brand> <Link to={`/listadoAdivinanzas/`} >  Adivinanzas </Link></Navbar.Brand>
+                <Navbar.Brand > <Link to={`/trabalenguasuser`} >  Trabalenguas </Link></Navbar.Brand>
+                <Navbar.Brand > <Link to={`/videocuentos`} >  Video Cuentos </Link></Navbar.Brand>
+
             </Nav>
            
-            <Link to={`/login`} ><i className ="material-icons" style={{textAlign:"right"}}>
+            {/* <Link to={`/login`} ><i className ="material-icons" style={{textAlign:"right"}}>
                 account_box
-             </i> </Link>
+             </i> </Link> */}
         </Navbar>
         <div>
         
@@ -82,7 +93,7 @@ const rutas = (
         <Route path="/adivinanza" component={Adivinanza} />
         <Route path="/listadoAdivinanzas/" component={ListadoAdivinanza} />
         <Route path="/adivinanzauser/:id" component={Adivina} />
-
+        <Route path="/videocuentos" component={VideoCuento} />
 
     </BrowserRouter>
 )

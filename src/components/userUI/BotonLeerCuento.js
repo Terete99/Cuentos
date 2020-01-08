@@ -1,17 +1,27 @@
 import React, { Component } from 'react'
 import { mongo } from '../../index'
 import { ObjectId } from 'bson'
-import ReactPlayer from 'react-player'
 import { Onecomentario } from '../tereUI/Comentario'
 import { CuentoComponent } from '../tereUI/Cuento'
+import Speech from 'speak-tts'
 
-
-
-
-
+export const iconEscuchar = <i className="material-icons" title="escuchar"> hearing </i>
+export const leer = textoALeer => {
+  
+    let lector = new Speech();  
+    lector.init({
+        volume: 1,
+        lang: "es-ES",
+        rate: 1,
+        pitch: 0.9   // 1 joven, 0.5 más mayor, 
+    }).then( n => { return lector.speak({text: textoALeer}) })  
+  }
+  
 export class BotonLeerCuento extends Component {
     state = {
-        cuento: new CuentoComponent()
+        cuento: new CuentoComponent(),
+        video: '',
+        escuchar: ''
     }
     componentDidMount = () => { //traer listado cuentos y pintar en pantalla
         this.cuento.findOne({ _id: new ObjectId(this.props.match.params.id) }).then(c => {
@@ -29,6 +39,7 @@ export class BotonLeerCuento extends Component {
 
                 {/* props del hijo al padre */}
                 <LeerCuento {...this.state.cuento} />
+
                 {/* {JSON.stringify(this.state.cuento)} */}
             </div>
         )
@@ -43,19 +54,21 @@ class LeerCuento extends Component {
     render() {
         return (
             <div className="div-leercuento" >
-                <div className="modal-dialog modal-dialog-centered"  >
+                <div  >
 
                     <div className="modal-content" >
                         <div className="div-leercuento" >
-                            <h3>{this.props.tematica}</h3>
+                        
                             {/* le paso las props  */}
                             <img src={this.props.imagen} alt="No disponible" width="300px" />
                         </div>
                         <div className="div-leercuento" >
+                            
+                        <span onClick= { e => {
+                            leer(this.props.argumento)
+                        }} >Escuchar cuento<br></br> {iconEscuchar}</span>
                             <h1 className="div-leercuento" >{this.props.titulo}</h1>
                             <p className="card-text">{this.props.argumento}</p>
-
-                            <ReactPlayer width="auto" height="auto" url={this.props.video}  />
                             <h4><small className="text-muted">{this.props.moraleja}</small></h4>
                             <hr></hr>
                         </div>
@@ -71,8 +84,6 @@ class LeerCuento extends Component {
 
                                 </div>
                             })}
-
-
 
                             <div className="inputComentarios">
                                 <input className="form-control form-control-lg" onChange={(e) => {
@@ -110,8 +121,4 @@ class LeerCuento extends Component {
 
 
 }
-
-
-
-
 

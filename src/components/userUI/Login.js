@@ -26,20 +26,20 @@ export class Login extends Component {
 
   render() {
     return (
-        <div className="login" >
-          <h4 style={{textAlign:"center"}}>Inicia Sesión</h4>
+      <div className="login" >
+        <h4 style={{ textAlign: "center" }}>Inicia Sesión</h4>
+        <input
+          onChange={e => this.setState({ username: e.target.value })}
+          className="form-control"
+          placeholder="Nombre de usuario" />&nbsp;
           <input
-            onChange={e => this.setState({ username: e.target.value })}
-            className="form-control"
-            placeholder="Nombre de usuario" />&nbsp;
-          <input
-            type="password"
-            onChange={e => this.setState({ password: e.target.value })}
-            className="form-control"
-            placeholder="Contraseña" /><br></br>
-          <button onClick={this.login} className="btn btn-primary"> Iniciar sesión</button> &nbsp;
+          type="password"
+          onChange={e => this.setState({ password: e.target.value })}
+          className="form-control"
+          placeholder="Contraseña" /><br></br>
+        <button onClick={this.login} className="btn btn-primary"> Iniciar sesión</button> &nbsp;
           <button onClick={this.logout} className="btn btn-primary" > Cerrar sesión </button>
-        </div>
+      </div>
 
     )
   }

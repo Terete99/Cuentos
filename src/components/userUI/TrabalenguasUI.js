@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { mongo } from '../../index'
+import Form from 'react-bootstrap/Form'
 
 
 
@@ -36,11 +37,12 @@ export class TrabalenguasUI extends Component {
   }
   trabalenguas = mongo.db('miapp').collection('trabalenguas')
   //vuelvo a hacer el agregate para cambiar el state de cada tema
-   renderSelectTemas = () => {
+  renderSelectTemas = () => {
     return (
-    
-      <select
-      className="btn btn-primary"
+
+      <Form.Control as="select"
+        style={{margin:"35px"}}
+        size="lg"
         onChange={e => {
           this.trabalenguas.aggregate([
             { $match: { tematica: e.target.value } }
@@ -49,27 +51,33 @@ export class TrabalenguasUI extends Component {
             console.log(t)
           })
         }}>
-          <option>Trabalenguas</option>
         {this.state.tematicas.map((t, i) => {
           return (
-          <option key={i}> {t._id} </option>)}
-          
+            <option key={i}> {t._id} </option>)
+        }
+
         )}
-      </select>
+      </Form.Control>
       
+
     )
   }
   render() {
 
     return (
-      <div>
-        <div className="fondo " >
+      <div className="fondo " >
+        <h1 style={{textAlign:"center",padding:"15px"}}>Trabalenguas</h1>
+        <div style={{padding:"15px"}}>
+
+          <h4 style={{margin:"35px"}}>Selecciona la temática</h4>
         
+
           {this.renderSelectTemas()}
           {this.state.trabalenguas.map((t, i) => <div className="container" key={i}>
 
             <div className="card">
-              <div className="card-body">{t.texto}</div>
+              <div className="card-body">
+                <h3>{t.texto}</h3></div>
             </div>
 
           </div>)}
